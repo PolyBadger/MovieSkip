@@ -1,0 +1,9 @@
+## Interface: 110100
+## Title: MovieSkip
+## Author: polybadger
+## Version: 11.1.0
+## DefaultState: Enabled
+## Notes: Turns off movies, cinematics, and cut scenes
+## IconTexture: Interface\AddOns\MovieSkip\MovieSkip.tga
+## SavedVariables: MovieSkipWTF
+MovieSkip.lua
