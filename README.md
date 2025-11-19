@@ -5,8 +5,8 @@ A World of Warcraft Addon: MovieSkip
 A light-weight addon that allows you to skip cinematics and movies. MovieSkip resets to play cinematics when a new xpac or patch is released.
 
 ## Usage
-Skip cinematics with /movieskip yes  
-Play cinematics with /movieskip no  
+Skip cinematics with /movieskip skip 
+Play cinematics with /movieskip play
 Replay last cinematic with /movieskip replay  
 
 ## Authors
