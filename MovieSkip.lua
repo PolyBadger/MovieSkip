@@ -1,8 +1,9 @@
 
+local addon, ns = ...
 local color = "|c006699ff"
 local message = {
-	skip = "Cinematic skipped, play with /MovieSkip no",
-	play = "Cinematic played, skip with /MovieSkip yes",
+	skip = "Cinematic skipped, play with /MovieSkip play",
+	play = "Cinematic played, skip with /MovieSkip skip",
 }
 
 StaticPopupDialogs["MovieSkipDialog"] = {
@@ -49,7 +50,7 @@ local DefaultWTF = {
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 frame:SetScript("OnEvent", function(self, event, ...)
-	if event == "ADDON_LOADED" and ... == "MovieSkip" then
+	if event == "ADDON_LOADED" and select(1, ...) == addon then
 		if MovieSkipWTF == nil or type(MovieSkipWTF) == "boolean" then
 			-- Initialize WTF on first time install
 			MovieSkipWTF = DefaultWTF
@@ -75,15 +76,13 @@ SlashCmdList["MOVIESKIP"] = function(msg)
 		return
 	elseif msg == "yes" or msg == "skip" then
 		MovieSkipWTF.skip = true
+		print(color.."Cinematics will be skipped, play with /MovieSkip play")
 	elseif msg == "no" or msg == "play" then
 		MovieSkipWTF.skip = false
+		print(color.."Cinematics will be played, skip with /MovieSkip skip")		
 	elseif MovieSkipWTF.skip then
 		StaticPopup_Show("MovieSkipDialog", "Cinematics are currently skipped")
 	else
 		StaticPopup_Show("MovieSkipDialog", "Cinematics are currently playing")		
 	end
 end
-
-
-
-
